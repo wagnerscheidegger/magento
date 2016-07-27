@@ -1,0 +1,42 @@
+<?php 
+$model = Mage::getModel('youtube/youtubesettings')->load(1);
+$helper = Mage::helper('youtube');
+if($model)
+{
+	$username = $model->getUserName();
+	$key = $model->getApiKey();
+	$user_entry = $helper->getYoutubeSettings($key,$username);
+	$uploads = $user_entry->items[0]->contentDetails->relatedPlaylists->uploads;
+  $token = $_POST['token'];
+  if($token=='next')
+  {
+    $token =Mage::getSingleton('core/session')->getNextPageToken();
+  }else
+  {
+    $token =Mage::getSingleton('core/session')->getPrevPageToken();
+  }
+	$videos = $helper->getYoutubeVideos($key,$uploads,$token);
+  $nextPageToken = $videos['nextPageToken'];
+  $prevPageToken = $videos['prevPageToken'];
+
+  Mage::getSingleton('core/session')->setPrevPageToken($prevPageToken);
+  Mage::getSingleton('core/session')->setNextPageToken($nextPageToken);
+?>
+      <div class="row ytflexwrap">
+          <?php foreach ($videos['items'] as $key => $vid) { 
+            $url = str_replace('default.', '0.', $vid->snippet->thumbnails->default->url);
+            ?>
+            <div class="col-md-4 portfolio-item">
+                <a href="http://www.youtube.com/watch?v=<?php echo $vid->snippet->resourceId->videoId; ?>" class=" fancybox-media watchvideo" >
+                    <img src="<?php echo $url; ?>" alt="<?php echo $media->group->title; ?>"/>
+                </a>
+                <h5>
+                    <a href="http://www.youtube.com/watch?v=<?php echo $vid->snippet->resourceId->videoId; ?>" class=" fancybox-media watchvideo"><?php echo $vid->{'snippet'}->{'title'} ?></a>
+                </h5>
+                 <!--<p><?php //echo $media->group->description; ?></p>-->
+            </div>
+          <?php } ?>
+      </div>
+<?php
+}die();
+?>

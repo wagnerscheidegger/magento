@@ -1,0 +1,12 @@
+#netsol_sd_buttons{width:100%; float:left;}
+#facebook_social_discount, #twitter_social_discount {background: url(../../images/netsol/facebook.png) no-repeat; float: left; width: 195px; height: 50px; text-indent: -9999px; outline:none; margin:10px 0;}
+#twitter_social_discount{background: url(../../images/netsol/twitter.png) no-repeat;}
+.social_loader{background: url(../../images/netsol/social_loader.gif) no-repeat !important;}
+
+#netsol_sd_buttons .response{width:100%; float:left; margin:10px 0;}
+#netsol_sd_buttons .response #coupon_code_text{float: left; font-size: 20px; font-weight: bold; width: 100%;}
+#netsol_sd_buttons .response .form, #netsol_sd_buttons .response .form label{float: left; width: 100%;}
+#netsol_sd_buttons .response .form input#sd_email{width: 245px;}
+#netsol_sd_buttons .response .form button{clear:both; display:block; margin-top:10px;}
+#netsol_sd_buttons .response .form .sd_message{color: #3399CC; float: left; margin: 5px 0; width: 100%;}
+#netsol_sd_buttons .response, #netsol_sd_buttons .response .form{display:none;}

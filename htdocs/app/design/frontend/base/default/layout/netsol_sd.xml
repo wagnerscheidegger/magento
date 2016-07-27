@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<catalog_product_view>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/netsol/social_discount.css</file>
+			</action>
+			<action method="removeItem">
+				<type>skin_js</type>
+				<file>js/jqzoom/jquery-1.3.1.min.js</file>
+			</action>
+		</reference>
+		<reference name="alert.urls">
+            <block type="netsol_sd/buttons" name="social.discount" as="social.discount" after="-">
+           		<action method="setTemplate"><template>netsol/social_discount/buttons.phtml</template></action>
+			</block>
+        </reference>
+        <reference name="product.info">
+            <block type="netsol_sd/buttons" name="social.discount" as="social.discount" after="-">
+           		<action method="setTemplate"><template>netsol/social_discount/buttons.phtml</template></action>
+			</block>
+        </reference>
+	</catalog_product_view>
+</layout>

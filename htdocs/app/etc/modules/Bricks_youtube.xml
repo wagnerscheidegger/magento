@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bricks_Youtube>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Bricks_Youtube>
+    </modules>
+</config> 

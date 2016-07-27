@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <SocialShare_FacebookComments>
+            <version>2.0.0</version>
+        </SocialShare_FacebookComments>
+    </modules>
+
+    <frontend>
+        <layout>
+            <updates>
+                <FacebookComments>
+                    <file>socialshare/FacebookComments.xml</file>
+                </FacebookComments>
+            </updates>
+        </layout>
+    </frontend>
+
+    <adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<facebookcomments translate="title" module="facebookcomments">
+											<title>Social Share - Facebook Comments</title>
+										</facebookcomments>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>		
+    </adminhtml>
+
+    <global>
+        <resources>
+            <FacebookComments_setup>
+                <setup>
+                    <module>SocialShare_FacebookComments</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </FacebookComments_setup>
+            <FacebookComments_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </FacebookComments_write>
+            <FacebookComments_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </FacebookComments_read>
+        </resources>
+        <blocks>
+            <FacebookComments>
+                <class>SocialShare_FacebookComments_Block</class>
+            </FacebookComments>
+        </blocks>
+        <helpers>
+            <facebookcomments>
+                <class>SocialShare_FacebookComments_Helper</class>
+            </facebookcomments>
+        </helpers>
+		<models>
+            <facebookcomments>
+                <class>SocialShare_FacebookComments_Model</class>
+            </facebookcomments>
+        </models>
+    </global>
+
+    <default>
+        <facebookcomments>
+			<conf>
+                <enabled>0</enabled>
+				<posts>5</posts>
+				<width>500</width>
+				<colorscheme>light</colorscheme>
+			</conf>
+        </facebookcomments>
+    </default>
+</config>

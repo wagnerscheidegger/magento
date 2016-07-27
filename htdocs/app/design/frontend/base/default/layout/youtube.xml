@@ -1,0 +1,24 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0"> 
+	<default>
+        <reference name="head">
+        	<action method="addItem"><type>skin_js</type><name>js/bricks/youtube/bootstrap-paginator.min.js</name></action>
+
+        	<action method="addItem"><type>skin_js</type><name>bricks/youtube/fancybox/jquery.fancybox.js</name></action>
+
+        	<action method="addItem"><type>skin_js</type><name>bricks/youtube/fancybox/helpers/jquery.fancybox-media.js</name></action>
+
+        	<action method="addItem"><type>skin_js</type><name>js/bricks/youtube/all_js.js</name></action>
+
+           <action method="addItem"><type>skin_css</type><name>css/bricks/youtube/3-col-portfolio.css</name></action>
+           <action method="addItem"><type>skin_css</type><name>css/bricks/youtube/all.css</name></action>
+           <action method="addItem"><type>skin_css</type><name>bricks/youtube/fancybox/jquery.fancybox.css</name></action>
+        </reference>
+    </default>
+  	<youtube_index_index>
+       	<reference name="content">
+            <block type="youtube/videos" name="index_videos" template="youtube/index.phtml" />
+       	</reference>
+  	</youtube_index_index>
+</layout>   
+	

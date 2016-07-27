@@ -106,13 +106,13 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
             $my_smtp_host = Mage::getStoreConfig('system/smtp/host');
             $my_smtp_port = Mage::getStoreConfig('system/smtp/port');
             $config = array(
-                 'ssl' => 'tls',
-                 'port' => '587',
+                 'ssl' => '',
+                 'port' => '',
                  'auth' => 'login',
-                 'username' => 'wagner.scheidegger@gmail.com',
-                 'password' => 'Camila01'
+                 'username' => '',
+                 'password' => ''
             );
-            $transport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
+            $transport = new Zend_Mail_Transport_Smtp('', $config);
             Zend_Mail::setDefaultTransport($transport);
 
             $this->_mail = new Zend_Mail('utf-8');

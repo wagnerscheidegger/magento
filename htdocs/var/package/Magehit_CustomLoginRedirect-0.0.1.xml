@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Magehit_CustomLoginRedirect</name>
+    <version>0.0.1</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Custom Login Redirect Extension</summary>
+    <description>Custom Login Redirect allows you to redirect to custom page after login, logout, register. Customer Group filter </description>
+    <notes>Stable version 0.0.1</notes>
+    <authors><author><name>MageHit</name><user>magehit</user><email>support@magehit.com</email></author></authors>
+    <date>2015-08-03</date>
+    <time>04:06:27</time>
+    <contents><target name="magelocal"><dir name="Magehit"><dir name="Customerredirect"><dir name="Helper"><file name="Data.php" hash="2d46c6885a00f9f34c1bc6aff586fcf3"/></dir><dir name="Model"><dir name="Observer"><file name="Customer.php" hash="0300cfced77a2fb98ff1a0955e6c9121"/></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="34d7845e72f90e823d5098b0ac7ddb66"/><file name="config.xml" hash="6ff788b9e70cef72d188a1e56ed932fb"/><file name="system.xml" hash="c529d545fa9efa51d06bb1eae3c90121"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Magehit_Customerredirect.xml" hash="a518f1427250d6be7723c19c6834397c"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

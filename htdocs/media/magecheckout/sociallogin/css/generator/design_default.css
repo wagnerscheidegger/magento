@@ -1,0 +1,32 @@
+/*===================================================================
+|                            CONFIGUARATION STYLE                    |
+====================================================================*/
+
+#social-login-popup .social-login-title {
+background-color: #3399cc}
+
+#social-login-popup fieldset button.login {
+background-color: #3399cc;
+border: #3399cc}
+#social-login-popup button.create {
+background-color: #3399cc;
+border: #3399cc}
+#social-login-popup fieldset button.send {
+background-color: #3399cc;
+border: #3399cc}
+#social-login-popup .social-login .block-content .button span{
+background:  #3399cc;
+border: 1px solid #3399cc;
+height: auto;
+}
+/*===================================================================
+|                           END CONFIGUARATION STYLE                 |
+====================================================================*/
+
+
+/*===================================================================
+|                           Custom STYLE                             |
+====================================================================*/
+/*===================================================================
+|                           End Custom STYLE                         |
+====================================================================*/

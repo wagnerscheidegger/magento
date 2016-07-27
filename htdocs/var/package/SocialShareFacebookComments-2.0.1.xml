@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>SocialShareFacebookComments</name>
+    <version>2.0.1</version>
+    <stability>stable</stability>
+    <license>OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Easily Facebook Comments To Your Magento Store</summary>
+    <description>This extension adds Facebook comments to your product pages</description>
+    <notes>Standalone capabilities, OpenGraphTags extension no longer required </notes>
+    <authors><author><name>Roy Toledo</name><user>Niknak</user><email>toledoroy@gmail.com</email></author></authors>
+    <date>2015-10-16</date>
+    <time>13:45:11</time>
+    <contents><target name="magecommunity"><dir name="SocialShare"><dir name="FacebookComments"><dir name="Helper"><file name="Data.php" hash="50082b3fa2afa7d8a70cffb6bdee6664"/></dir><dir name="Model"><dir name="System"><dir name="Config"><dir name="Source"><dir name="Dropdown"><file name="Colorscheme.php" hash="8b332d27e2cfe88f3396598a0f33922d"/><file name="Position.php" hash="252f5f384c83ebb6f0334a067a822440"/></dir></dir></dir></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="9b6183b185498ff532e7be740aa6af23"/><file name="config.xml" hash="bcf48273de7a49e474c1400514142376"/><file name="system.xml" hash="3b37903a8931712bc862f53ae9617972"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="socialshare"><file name="FacebookComments.xml" hash="8d230b077ab4fe2d4579d22bc721583b"/></dir></dir><dir name="template"><dir name="socialshare"><file name="fb_comments.phtml" hash="bc06fa62889148716f653f734b53721a"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="SocialShare_FacebookComments.xml" hash="43087a2d1453b10ad7bd133e715a39f0"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>4.0.0</min><max>8.0.0</max></php></required></dependencies>
+</package>

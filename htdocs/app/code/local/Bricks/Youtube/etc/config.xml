@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bricks_Youtube>
+            <version>0.1.0</version>
+         </Bricks_Youtube>
+    </modules>
+    
+    <admin>
+        <routers>
+			<youtube>
+				<use>admin</use>
+				<args>
+					<module>Bricks_Youtube</module>
+					<frontName>youtube</frontName>
+				</args>
+			</youtube>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <menu>
+            <youtube module="youtube">
+              <title>Youtube Videos Gallery</title>
+              <sort_order>73</sort_order>
+                <children>
+                    <!-- <youtube_menu module="youtube">
+                        <title>Gallery</title>
+                        <sort_order>1</sort_order>
+                        <action>youtube/adminhtml_youtube</action>
+                    </youtube_menu> -->
+                    <youtube_settings module="youtube">
+                        <title>Settings</title>
+                        <sort_order>2</sort_order>
+                        <action>youtube/adminhtml_youtubesettings/new/</action>
+                    </youtube_settings>
+                </children>
+            </youtube>
+        </menu>
+
+		<layout>
+			<updates>
+				<youtube>
+					<file>youtube.xml</file>
+				</youtube>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <youtube>
+                <class>Bricks_Youtube_Model</class>
+                <resourceModel>youtube_mysql4</resourceModel>
+            </youtube>
+            <youtube_mysql4>
+                <class>Bricks_Youtube_Model_Mysql4</class>
+                <entities>
+                    <!-- <youtube>
+                        <table>youtube</table>
+                    </youtube> -->
+                    <youtubesettings>
+                        <table>youtubesettings</table>
+                    </youtubesettings>
+                </entities>
+            </youtube_mysql4>
+        </models>
+
+        <blocks>
+            <youtube>
+                <class>Bricks_Youtube_Block</class>
+            </youtube>
+        </blocks>
+
+        <helpers>
+            <youtube>
+                <class>Bricks_Youtube_Helper</class>
+            </youtube>
+        </helpers>
+
+        <resources>
+            <youtube_setup>
+                <setup>
+                    <module>Bricks_Youtube</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </youtube_setup>
+            <youtube_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </youtube_write>
+            <youtube_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </youtube_read>
+        </resources>
+    </global>
+    <frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <bricks_youtube before="Mage_Customer">Bricks_Youtube</bricks_youtube>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend>
+    <frontend>
+        <routers>
+          <youtube>
+            <use>standard</use>
+              <args>
+                <module>Bricks_Youtube</module>
+                <frontName>youtube</frontName>
+              </args>
+          </youtube>
+        </routers>
+        <layout>
+          <updates>
+          <youtube>
+            <file>youtube.xml</file>
+          </youtube>
+          </updates>
+        </layout>
+  </frontend>
+</config>

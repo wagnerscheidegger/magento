@@ -1,0 +1,21 @@
+<?php
+$buttonSize = $this->getButtonSize ();
+$buttonPos = $this->getButtonPos();
+$productName = $this->getProduct ()->getName ();
+$productPrice = $this->getProduct ()->getPrice ();
+
+$productPrice = Mage::helper('core')->currency($productPrice,true,false);
+
+$price_des = "Price: " . $productPrice;
+$msg = $this->__("Take a look at this awesome product:");
+$prd = $this->__($productName);
+$bmsg = $this->__("at just");
+$display_des = $msg.' '.$prd.' '.$bmsg.' '.$productPrice;
+?>
+<?php 
+if($buttonPos == 1 || $buttonPos == 3)
+{
+?>
+<a href="whatsapp://send" data-text='<?php echo $display_des;?>'
+	data-href="" class="wa_btn wa_btn_<?php echo $buttonSize?>" style="display:none;"><?php echo $this->__("Share")?></a>
+<?php }?>

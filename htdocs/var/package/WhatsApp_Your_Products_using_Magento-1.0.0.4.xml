@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>WhatsApp_Your_Products_using_Magento</name>
+    <version>1.0.0.4</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL-3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Share Product link to WhatsApp contacts</summary>
+    <description>Extension will allow you to promote &amp; brand your shop via Whatsapp. Linking this traffic source with a Whatsapp extension would be a huge advantage for your shop promotion &amp; branding, Imagine the traffic you would be able to carry to your website with a source like Whatsapp &#x2013; the results would be tremendous.</description>
+    <notes>Added support for Currency formatting  </notes>
+    <authors><author><name>ZealousWeb Technologies Pvt Ltd.</name><user>ZealousWeb</user><email>magento@zealousweb.com</email></author></authors>
+    <date>2015-05-06</date>
+    <time>07:15:46</time>
+    <contents><target name="magecommunity"><dir><dir name="ZealousWeb"><dir name="WhatsApp"><dir name="Block"><file name="Whatsapp.php" hash="94b3bd283ef5b0e264be9529aaf0b0ca"/></dir><dir name="Helper"><file name="Data.php" hash="0ff493e7177e5ebf41cf7d718fc15149"/></dir><dir name="Model"><file name="Whatsapp.php" hash="6a2395961bdd4a39f4799edd6c143f03"/><file name="Whatsappposition.php" hash="a116fb3b6dbe4b944d0920c8fe07b4c7"/></dir><dir name="etc"><file name="adminhtml.xml" hash="ef11e9213fda8f0f1eb02f3ce5b1496a"/><file name="config.xml" hash="364d4befa6d006474cac6369211b9af2"/><file name="system.xml" hash="1f3433a08ec5a6aa25a0891d735a5713"/></dir></dir></dir></dir></target><target name="magedesign"><dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="whatsapp.xml" hash="ccad098e02c5c1d44326bc7c001d5ac8"/></dir><dir name="template"><dir name="whatsapp"><file name="whatsapp.phtml" hash="c6728adb0c44cb2e3258b708a3810ee7"/><file name="whatsapp_footer.phtml" hash="3807096f827c1a0ed1687917599971fb"/></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="layout"><file name="whatsapp.xml" hash="16965e649db8f000f5b4ec3914703632"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir><dir name="modules"><file name="ZealousWeb_WhatsApp.xml" hash="707bcd3f24e695683e3a4f45224124f8"/></dir></dir></target><target name="mageskin"><dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="js"><dir name="whatsapp"><file name="whatsapp-button.js" hash="06b3682f1f7d3ee837ba08ba2e3cfd8b"/></dir></dir></dir></dir></dir></dir></target><target name="mageweb"><dir><dir name="js"><dir name="whatsapp"><dir name="jscolor"><file name="arrow.gif" hash="5034704a76cd55c1cbcbc58ea6bf523f"/><file name="cross.gif" hash="ba9a274b9323753cd95bc3b1eb2f4e5f"/><file name="demo.html" hash="edf71251cb2be20322d2efb00aee86a6"/><file name="hs.png" hash="fefa1a03d92ebad25c88dca94a0b63db"/><file name="hv.png" hash="990d71cada17da100653636cf8490884"/><file name="jscolor.js" hash="a26701f49bf33da8dc48f3431e5f4f42"/></dir></dir></dir></dir></target><target name="magelocale"><dir name="en_US"><file name="ZealousWeb_WhatsApp.csv" hash="bb548ccbfe44e530cd4eac507c7ad43d"/></dir><dir name="fr_FR"><file name="ZealousWeb_WhatsApp.csv" hash="cb29fed0e619df3d53b53f53a0f69989"/></dir><dir name="de_DE"><file name="ZealousWeb_WhatsApp.csv" hash="1383230665b1f84d7361e79bf169e4bd"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

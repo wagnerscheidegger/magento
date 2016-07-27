@@ -1,0 +1,122 @@
+<?php $_product = $this->getProduct() ?>
+<?php if(Mage::helper('netsol_sd')->isValidIP() && $_product->getEnableSocialDiscount()) : ?>
+	<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/netsol/social_discount/jquery.min.2.0.js') ?>"></script>
+	<script>var jQ = jQuery.noConflict();</script>
+
+	<div id="netsol_sd_buttons">
+		<?php
+		/* check if facebook sharing is enabled */
+		if(Mage::helper('netsol_sd')->isFacebookEnabled()) :
+		?>
+			<script>
+			jQ(document).ready(function() {
+				jQ.ajaxSetup({ cache: true });
+				jQ.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+					FB.init({
+					  appId: '<?php echo Mage::helper('netsol_sd')->getFacebookAppId() ?>',
+					  xfbml: true,
+					  version: 'v2.3' //or v2.0, v2.1, v2.0
+					});
+				
+					jQ("#facebook_social_discount").click(function() {
+						FB.ui({
+								method: 'feed',
+								name: "<?php echo str_replace('"', '', $_product->getName()) ?>",
+								link: '<?php echo Mage::helper('core/url')->getCurrentUrl() ?>',
+								picture: '<?php echo Mage::helper('catalog/image')->init($_product, 'thumbnail') ?>',
+								description: "<?php echo str_replace('"', '', preg_replace('/\s+/S', " ", strip_tags($_product->getShortDescription()))) ?>"
+							},
+							function(response) {
+								if (response && response.post_id) {
+									processSocialDiscount(response.post_id, '<?php echo $_product->getSku() ?>', 'Facebook');
+								} /* else {
+									alert('No response from facebook, please check agagin.');
+								} */
+							}
+						);
+					});
+				});
+			});
+			</script>
+			<a href="javascript:void(0);" id="facebook_social_discount">Facebook</a>
+		<?php endif; ?>
+		
+		<?php
+		/* check if twitter sharing is enabled */
+		if(Mage::helper('netsol_sd')->isTwitterEnabled()) :
+		?>
+			<script>
+			jQ(document).ready(function() {
+				jQ("#twitter_social_discount").click(function() {
+					jQ(this).addClass('social_loader');
+					jQ.ajax({
+						method: "POST",
+						url: "<?php echo $this->getUrl('socialdiscount/twitter/postFeed') ?>",
+						data: {'productId': '<?php echo $_product->getId() ?>'}
+					}).done(function(response) {
+						if(response.success) {
+							processSocialDiscount(response.post_id, '<?php echo $_product->getSku() ?>', 'Twitter');
+						} else {
+							jQ("#coupon_code").html('No response from twitter, please check agagin.');
+						}
+					});
+				});
+			});
+			</script>
+			<a href="javascript:void(0);" id="twitter_social_discount">Twitter</a>
+		<?php endif; ?>
+		
+		<div class="response">
+			<span id="coupon_code_text"></span>
+			<div class="form">
+				<input type="email" id="sd_email" name="sd_email" placeholder="Email me this coupon" />
+				<input type="hidden" id="coupon_code" class="coupon_code" />
+				<button type="button" class="button" id="send_coupon"><span><span>Send</span></span></button>
+				<span class="sd_message"></span>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	function processSocialDiscount(feedId, sku, media) {
+		jQ.ajax({
+			method: "POST",
+			url: "<?php echo $this->getUrl('socialdiscount/coupon/process') ?>",
+			data: {'feedId': feedId, 'sku': sku, 'media': media}
+		}).done(function(response) {
+			if(response.success) {
+				var icon = media+'_social_discount';
+				jQ("#"+icon.toLowerCase()).hide();
+				jQ("#coupon_code_text").html('Coupon Code: '+response.coupon);
+				jQ("#coupon_code").val(response.coupon);
+				jQ(".response .form").show();
+			} else {
+				jQ("#coupon_code_text").html('No response found, please check agagin.');
+			}
+			
+			jQ(".response").show();
+		});
+	}
+	
+	jQ(document).ready(function() {
+		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		jQ("#netsol_sd_buttons").on('click', '#send_coupon', function() {
+			if(jQ("#sd_email").val() == '' || !regex.test(jQ("#sd_email").val())) {
+				jQ(".sd_message").html('Invalid email address');
+			} else {
+				jQ.ajax({
+					method: "POST",
+					url: "<?php echo $this->getUrl('socialdiscount/coupon/sendCouponEmail') ?>",
+					data: {'coupon_code': jQ("#coupon_code").val(), 'customer_email': jQ("#sd_email").val()}
+				}).done(function(response) {
+					if(response.success) {
+						jQ(".sd_message").html('Email has been set successfully.');
+					} else {
+						jQ(".sd_message").html('Email not sent, please contact with adminstrator');
+					}
+				});
+			}
+		});
+	});
+	</script>
+<?php endif ?>

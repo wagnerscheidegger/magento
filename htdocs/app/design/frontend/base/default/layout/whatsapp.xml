@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+	<catalog_product_view>
+
+		<reference name="head">
+			<action method="addItem" ifconfig="zwt_wa_section/zwt_wa_group/zwt_wa_enable"
+				ifvalue="1">
+				<type>skin_js</type>
+				<name>js/whatsapp/whatsapp-button.js</name>
+			</action>
+		</reference>
+
+		<reference name="alert.urls">
+			<block type="whatsapp/whatsapp" name="custom_whatsapp" as="custom_whatsapp">
+				<action method="setTemplate" ifconfig="zwt_wa_section/zwt_wa_group/zwt_wa_enable"
+					ifvalue="1">
+					<template>whatsapp/whatsapp.phtml</template>
+				</action>
+			</block>
+		</reference>
+
+	<reference name="before_body_end">
+    <block type="whatsapp/whatsapp" name="custom_whatsapp_footer" as="custom_whatsapp_footer" after="-">
+				<action method="setTemplate" ifconfig="zwt_wa_section/zwt_wa_group/zwt_wa_enable"
+					ifvalue="1">
+					<template>whatsapp/whatsapp_footer.phtml</template>
+				</action>
+	</block>
+	</reference>
+	
+	</catalog_product_view>
+	
+</layout>

@@ -1,0 +1,81 @@
+<script type="text/javascript">
+    function getPageData($token)
+    {
+      jQuery.ajax({
+          url: "<?php echo Mage::getBaseUrl(); ?>youtube/videos/loadData",
+          type:'Post',
+          data:{token:$token},
+        context: document.body
+      }).done(function(response) {
+          jQuery('#main_toutube_div').html(response);
+          jQuery('#main_toutube_div').removeClass('opacity_div');
+          jQuery('#loading_div').hide();
+          jQuery('.entry-content').removeClass('overlay_screen');
+      });
+
+    }
+</script>
+<?php 
+$block = Mage::app()->getLayout()->createBlock('youtube/videos')->setBlockId('gallery'); //retrieve the cms block with the id set on this layout block
+// print_r($block->getBlockId());
+// exit;
+$model = Mage::getModel('youtube/youtubesettings')->load(1);
+$helper = Mage::helper('youtube');
+if($model)
+{
+	$username = $model->getUserName();
+	$key = $model->getApiKey();
+	$user_entry = $helper->getYoutubeSettings($key,$username);
+	$uploads = $user_entry->items[0]->contentDetails->relatedPlaylists->uploads;
+	$videos = $helper->getYoutubeVideos($key,$uploads);
+  $nextPageToken = $videos['nextPageToken'];
+  $prevPageToken = $videos['prevPageToken'];
+  Mage::getSingleton('core/session')->setPrevPageToken($prevPageToken);
+  Mage::getSingleton('core/session')->setNextPageToken($nextPageToken);
+?>
+	<?php if($model->getFeaturedVideo())
+      {?>
+        <div>
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/<?php echo $model->getFeaturedVideo();?>" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <?php 
+      }?>
+	<div id="main_toutube_div">
+      <div class="row ytflexwrap">
+          <?php foreach ($videos['items'] as $key => $vid) { 
+            $url = str_replace('default.', '0.', $vid->snippet->thumbnails->default->url);
+            ?>
+            <div class="col-md-4 portfolio-item">
+                <a href="http://www.youtube.com/watch?v=<?php echo $vid->snippet->resourceId->videoId; ?>" class=" fancybox-media watchvideo" >
+                    <img src="<?php echo $url; ?>" alt="<?php echo $media->group->title; ?>"/>
+                </a>
+                <h5>
+                    <a href="http://www.youtube.com/watch?v=<?php echo $vid->snippet->resourceId->videoId; ?>" class=" fancybox-media watchvideo"><?php echo $vid->{'snippet'}->{'title'} ?></a>
+                </h5>
+                 <!--<p><?php //echo $media->group->description; ?></p>-->
+            </div>
+          <?php } ?>
+      </div>
+      <hr>
+    </div>
+    <div style="clear:both;"></div>
+    <?php 
+     //if($this->pagination)
+      //{?>
+        <div class="pagination">
+          <ul class="pagination">
+            <li>
+              <a onclick="getPageData('prev')">Previous</a>
+            </li>
+            <li>
+              <a onclick="getPageData('next')">Next</a>
+            </li>
+          </ul>
+        </div>
+
+       <?php 
+      //} ?>
+<?php
+}
+?>

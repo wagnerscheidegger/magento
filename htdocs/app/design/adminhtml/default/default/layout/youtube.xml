@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <youtube_adminhtml_youtube_index>
+        <reference name="content">
+            <block type="youtube/adminhtml_youtube" name="youtube" />
+        </reference>
+    </youtube_adminhtml_youtube_index>
+
+    <adminhtml_youtube_edit>
+        <reference name="content">
+            <block type="youtube/adminhtml_youtube_edit" name="edit" />
+        </reference>
+    </adminhtml_youtube_edit>
+
+    <youtube_adminhtml_fontsettings_index>
+        <reference name="content">
+            <block type="youtube/adminhtml_fontsettings" name="youtube" />
+        </reference>
+    </youtube_adminhtml_fontsettings_index>
+</layout>

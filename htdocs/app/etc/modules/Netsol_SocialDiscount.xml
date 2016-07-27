@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Netsol_SocialDiscount>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Netsol_SocialDiscount>
+    </modules>
+</config>

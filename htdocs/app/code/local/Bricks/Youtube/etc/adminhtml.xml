@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+  <acl>
+    <resources>
+      <all>
+        <title>Allow Everything</title>
+      </all>
+      <admin>
+        <children>
+          <youtube translate="title" module="youtube">
+                    <title>Youtube</title>
+                    <children>
+                        <firstchild>
+                            <title>Youtube</title>
+                        </firstchild>
+                    </children>
+          </youtube>
+        </children>
+      </admin>
+    </resources>
+  </acl>
+</config>

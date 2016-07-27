@@ -52,6 +52,7 @@
                 <?php echo $this->getChildHtml('breadcrumbs') ?>
                 <div class="col-main">
                     <?php echo $this->getChildHtml('global_messages') ?>
+					<?php echo $this->getLayout()->createBlock('layerslider/layerslider')->setTemplate('layerslider/layerslider.phtml')->toHtml();?>
                     <?php echo $this->getChildHtml('content') ?>
                 </div>
             </div>

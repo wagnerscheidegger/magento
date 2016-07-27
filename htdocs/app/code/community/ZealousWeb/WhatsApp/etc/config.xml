@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module configuration
+ *
+ * @author ZealousWeb
+ */
+-->
+<config>
+  <modules>
+    <ZealousWeb_WhatsApp>
+      <version>0.1.0</version>
+    </ZealousWeb_WhatsApp>
+  </modules>
+  <global>
+  <models>
+	<whatsapp>
+		<class>ZealousWeb_WhatsApp_Model</class>
+	</whatsapp>
+	</models>
+    <helpers>
+      <whatsapp>
+        <class>ZealousWeb_WhatsApp_Helper</class>
+      </whatsapp>
+    </helpers>
+    <blocks>
+	<whatsapp>
+		<class>ZealousWeb_WhatsApp_Block</class>
+	</whatsapp>
+	</blocks>
+  </global>
+  <frontend>
+		<routers>
+			<whatsapp>
+				<use>standard</use>
+				<args>
+					<module>ZealousWeb_WhatsApp</module>
+					<frontName>whatsapp</frontName>
+				</args>
+			</whatsapp>
+		</routers>
+		<layout>
+			<updates>
+				<whatsapp>
+					<file>whatsapp.xml</file>
+				</whatsapp>
+			</updates>
+		</layout>
+		<translate>
+        <modules>
+            <ZealousWeb_WhatsApp>
+                <files>
+                    <default>ZealousWeb_WhatsApp.csv</default>
+                </files>
+            </ZealousWeb_WhatsApp>
+        </modules>
+    </translate>
+	</frontend>
+	<adminhtml>
+	<layout>
+		<updates>
+			<whatsapp>
+				<file>whatsapp.xml</file>
+			</whatsapp>
+		</updates>
+	</layout>
+	</adminhtml>
+	<default>
+    <zwt_wa_section>
+        <zwt_wa_group>                
+            <zwt_background>286E17</zwt_background>         
+        </zwt_wa_group>      
+    </zwt_wa_section>
+	</default>
+</config> 

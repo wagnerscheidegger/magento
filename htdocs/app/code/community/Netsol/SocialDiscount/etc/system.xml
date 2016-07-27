@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <netsol_sd translate="label" module="netsol_sd">
+            <label>Netsol Social Discount</label>
+            <sort_order>200</sort_order>
+        </netsol_sd>
+    </tabs>
+    <sections>
+        <netsol_sd translate="label" module="netsol_sd">
+            <label>General Options</label>
+            <tab>netsol_sd</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+ 
+            <groups>
+				<sd_coupons translate="label" module="netsol_sd">
+                    <label>Coupon Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+ 
+                    <fields>
+                        <coupon_name translate="label">
+                            <label>Coupon Name</label>
+                            <comment>All coupons will be generated with this name</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry</validate>
+                        </coupon_name>
+                        <coupon_description translate="label">
+                            <label>Coupon Description</label>
+                            <comment>Coupon Description</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </coupon_description>
+                        <coupon_length translate="label">
+                            <label>Coupon Length</label>
+                            <comment>No. of characters in coupon</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry validate-number</validate>
+                        </coupon_length>
+                        <coupon_discount_type translate="label">
+                            <label>Discount Type</label>
+                            <comment>Fixed amount or percent on amount</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>netsol_sd/system_config_source_coupontype</source_model>
+                        </coupon_discount_type>
+                        <coupon_amount translate="label">
+                            <label>Discount Amount/Percent</label>
+                            <comment>Discount Amount/Percent</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry validate-number</validate>
+                        </coupon_amount>
+                        <use_of_coupon translate="label">
+                            <label>Use of Coupon</label>
+                            <comment>Allow customer to use coupon on ?</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>netsol_sd/system_config_source_couponpermission</source_model>
+                        </use_of_coupon>
+                        <coupon_delete translate="label">
+                            <label>Delete Coupon After Use</label>
+                            <comment>Recommened to delete used coupons, so those coupon codes can re-used.</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </coupon_delete>
+                        <sd_block_ip translate="label">
+                            <label>Blacklist IP Address</label>
+                            <comment>Add multiple IP addresses (, seprated) which you want to block. Those user's will not able to share products.</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sd_block_ip>
+                        <coupon_email translate="label">
+                            <label>Coupon Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </coupon_email>
+                        <coupon_email_sender translate="label">
+                            <label>Coupon Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </coupon_email_sender>
+                    </fields>
+                </sd_coupons>
+                
+                <sd_facebook translate="label" module="netsol_sd">
+                    <label>Facebook Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+ 
+                    <fields>
+						<facebook_share translate="label">
+                            <label>Facebook Share</label>
+                            <comment>Enable facebook share</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </facebook_share>
+                        <facebook_app_id translate="label">
+                            <label>Facebook App Id</label>
+                            <comment>Enter your facebook app id (<![CDATA[<a target="_blank" href="https://developers.facebook.com/docs/apps/register">Click here</a>]]> to create new facebook app). Your app should have public access and not in sandbox mode.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry validate-number</validate>
+                            <depends>
+								 <facebook_share>1</facebook_share>
+							</depends>
+                        </facebook_app_id>
+                    </fields>
+                </sd_facebook>
+            </groups>
+        </netsol_sd>
+    </sections>
+</config>

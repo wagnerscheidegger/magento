@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Netsol_SocialDiscount>
+            <version>1.0.5</version>
+        </Netsol_SocialDiscount>
+    </modules>
+    
+    <global>
+		<helpers>
+			<netsol_sd>
+				<class>Netsol_SocialDiscount_Helper</class>
+			</netsol_sd>
+		</helpers>
+		<blocks>
+			<netsol_sd>
+				<class>Netsol_SocialDiscount_Block</class>
+			</netsol_sd>
+		</blocks>
+		<models>
+			<netsol_sd>
+				<class>Netsol_SocialDiscount_Model</class>
+				<resourceModel>netsol_sd_mysql4</resourceModel>
+			</netsol_sd>
+			<netsol_sd_mysql4>
+				<class>Netsol_SocialDiscount_Model_Mysql4</class>
+				<entities>
+					<netsol_social_discount>
+						<table>netsol_social_discount</table>
+					</netsol_social_discount>
+				</entities>
+			</netsol_sd_mysql4>
+		</models>
+		<resources>  
+			<netsol_sd_setup>
+				<setup>
+					<module>Netsol_SocialDiscount</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</netsol_sd_setup>
+			<netsol_sd_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</netsol_sd_write>
+			<netsol_sd_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</netsol_sd_read>
+		</resources>
+		
+		<template>
+			<email>
+				<netsol_sd_sd_coupons_coupon_email module="netsol_sd">
+					<label>Social Discount Send Coupon Email</label>
+					<file>sd_send_coupon_email.html</file>
+					<type>html</type>
+				</netsol_sd_sd_coupons_coupon_email>
+			</email>
+		</template>
+    </global>
+    
+    <frontend>
+		<layout>
+			<updates>
+				<netsol_sd>
+					<file>netsol_sd.xml</file>
+				</netsol_sd>
+			</updates>
+		</layout>
+		<routers>
+            <socialdiscount>
+                <use>standard</use>
+                <args>
+                    <module>Netsol_SocialDiscount</module>
+                    <frontName>socialdiscount</frontName>
+                </args>
+            </socialdiscount>
+        </routers>
+        <events>
+			<checkout_onepage_controller_success_action>
+				<observers>
+					<check_social_coupon>
+						<type>singleton</type>
+						<class>Netsol_SocialDiscount_Model_Observer</class>
+						<method>checkSocialCoupon</method>
+					</check_social_coupon>
+				</observers>
+			</checkout_onepage_controller_success_action>
+        </events>
+    </frontend>
+    
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <netsol_sd before="Mage_Adminhtml">Netsol_SocialDiscount_Adminhtml</netsol_sd>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    
+    <adminhtml>
+        <layout>
+            <updates>
+                <netsol_sd>
+                    <file>netsol_sd.xml</file>
+                </netsol_sd>
+            </updates>
+        </layout>
+    </adminhtml>
+    
+    <default>
+		<netsol_sd>
+			<sd_coupons>
+				<coupon_name>Social Discount Off</coupon_name>
+				<coupon_description>Social Discount Off</coupon_description>
+				<coupon_length>8</coupon_length>
+				<coupon_discount_type>by_percent</coupon_discount_type>
+				<coupon_amount>5</coupon_amount>
+				<coupon_delete>1</coupon_delete>
+				<coupon_email_sender>general</coupon_email_sender>
+                <coupon_email>netsol_sd_sd_coupons_coupon_email</coupon_email>
+			</sd_coupons>
+			<sd_facebook>
+				<facebook_share>0</facebook_share>
+			</sd_facebook>
+		</netsol_sd>
+    </default>
+</config>

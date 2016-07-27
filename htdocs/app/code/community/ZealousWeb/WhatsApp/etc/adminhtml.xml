@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module configuration
+ *
+ * @author ZealousWeb
+ */
+-->
+	<config>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<zwt_wa_section translate="title" module="whatsapp">
+											<title>WhatsApp Your Products Section</title>
+											<sort_order>0</sort_order>
+										</zwt_wa_section>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</config>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+    <name>magento_easy_catalog_images</name>
+    <version>2.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://creativecommons.org/licenses/by/3.0/">Creative Commons License </license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Magento Easy Catalog Images Community Module</summary>
+    <description>This extension will help to display child categories in product catalog. Installation and configuration will take approximately  5 minutes.&#xD;
+&#xD;
+1.Install extension using magento connect.&#xD;
+2.Assign catalog images to your catagories. It's recomended to use images of same size.&#xD;
+3.Navigate to System &gt; Configuration &gt; Templates-Master &gt; Easy Catalog Images and enable extension for any store you need.&#xD;
+4. Enjoy!</description>
+    <notes>Magento Easy Catalog Images Community Module</notes>
+    <authors><author><name>TemplatesMaster</name><user>TemplatesMaster</user><email>support@templates-master.com</email></author></authors>
+    <date>2012-11-22</date>
+    <time>14:41:06</time>
+    <contents><target name="magecommunity"><dir name="TM"><dir name="EasyCatalogImg"><dir name="Block"><file name="List.php" hash="8240c3e17bca70211f093ecd4d01b6a2"/></dir><dir name="Helper"><file name="Data.php" hash="81d341e88ca343818b7332b46facb8ea"/><file name="Image.php" hash="df1c69a83700310fcc7194522b174b20"/></dir><dir name="etc"><file name="adminhtml.xml" hash="d916f34640c97fb3b4e4a1dd396b5646"/><file name="config.xml" hash="9ca5b65768a6346fb697aa3a9da3cd87"/><file name="system.xml" hash="e34b7d5754b5dfeef60c56c1c9582097"/><file name="widget.xml" hash="a963471850dc6e84033d73367ede3a5c"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="easycatalogimg.xml" hash="c7f07896d661808dc5806d0aa0d5d166"/></dir><dir name="template"><dir name="easycatalogimg"><file name="list.phtml" hash="6f7ebeda3a487c281f7f8d5c475de668"/></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="default"><dir name="default"><dir name="css"><file name="easycatalogimg.css" hash="f9767d5af92512233bd39f50ca0f8332"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="TM_EasyCatalogImg.xml" hash="cd0896161cda3f8a77ffa2d4a97bc045"/></dir></target><target name="magemedia"><dir name="catalog"><dir name="category"><file name="np_thumb2.gif" hash=""/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

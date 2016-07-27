@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    
+	<catalog_product_view>
+		<reference name="content">
+            <block after="additional" type="core/template" name="fb_comments" >
+				<action method="setTemplate" ifconfig="facebookcomments/position/prod_bottom">
+                    <template>socialshare/fb_comments.phtml</template>
+                </action>
+            </block>
+        </reference>
+	</catalog_product_view>
+	
+	<default>
+		<!--
+		<reference name="content">
+            <block after="additional" type="core/template" name="fb_comments" >
+				<action method="setTemplate" ifconfig="facebookcomments/conf/active">
+                    <template>socialshare/fb_comments.phtml</template>
+                </action>
+            </block>
+        </reference>
+		-->
+    </default>
+</layout>

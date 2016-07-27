@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<netsol_sd>
+			<title>Social Discount</title>
+			<sort_order>1000</sort_order>
+			<children>
+				<social_discount module="netsol_sd">
+					<title>Social Discount</title>
+					<sort_order>1</sort_order>
+					<action>adminhtml/socialdiscount/list</action>
+				</social_discount>
+				<sd_analytic_report module="netsol_sd">
+					<title>Analytic Report</title>
+					<sort_order>2</sort_order>
+					<action>adminhtml/socialdiscount/report</action>
+				</sd_analytic_report>
+				<sd_configuration module="netsol_sd">
+					<title>Configuration</title>
+					<sort_order>3</sort_order>
+					<action>adminhtml/system_config/edit/section/netsol_sd</action>
+				</sd_configuration>
+			</children>
+		</netsol_sd>
+	</menu>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<netsol_sd translate="title" module="netsol_sd">
+										<title>Social Discount Settings</title>
+									</netsol_sd>
+								</children>
+							</config>
+						</children>
+					</system>
+					<netsol_sd>
+						<title>Social Discount</title>
+						<sort_order>1000</sort_order>
+						<children>
+							<social_discount module="netsol_sd">
+								<title>Social Discount</title>
+								<sort_order>1</sort_order>
+							</social_discount>
+							<sd_analytic_report module="netsol_sd">
+								<title>Analytic Report</title>
+								<sort_order>2</sort_order>
+							</sd_analytic_report>
+							<sd_configuration module="netsol_sd">
+								<title>Configuration</title>
+								<sort_order>3</sort_order>
+							</sd_configuration>
+						</children>
+					</netsol_sd>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>
